@@ -28,7 +28,7 @@ public class CalculadoraIdadeCarro {
 		System.out.println("Quantidade de idades: " + carros.stream().mapToInt(c -> c.getIdade()).distinct().count());
 		System.out.println("Idade mínima: " + carros.stream().mapToInt(c -> c.getIdade()).min().getAsInt());
 		System.out.println("Idade máxima: " + carros.stream().mapToInt(c -> c.getIdade()).max().getAsInt());
-		System.out.println("Idade média: " + carros.stream().mapToInt(c -> c.getIdade()).average().getAsDouble());
+		System.out.println("Idade média: " + carros.stream().mapToInt(Carro::getIdade).average().getAsDouble());
 	}
 	
 	public static void processarCarros(List<Carro> carros, CarrosIdadeProcessor processador) {
