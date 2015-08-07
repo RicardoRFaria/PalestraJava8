@@ -20,15 +20,15 @@ public class VariasManeirasDeSeEscreverLambda {
 		// Método antigo, com classe anônima
 		long tamanho = carros.stream().filter(new Predicate<Carro>() {
 			@Override
-			public boolean test(Carro t) {
-				return true;
+			public boolean test(Carro c) {
+				return !c.getMarca().equals("teste");
 			}
 		}).count();
 		System.out.println("Classe anônima, tamanho: " + tamanho);
 
 		// Implementação através de lambda
 		Predicate<Carro> predicateInstanciadoComLambda = (Carro c) -> {
-			return false;
+			return !c.getMarca().equals("teste");
 		};
 		tamanho = carros.stream().filter(predicateInstanciadoComLambda).count();
 		System.out.println("Interface implementada através de lambda, tamanho: " + tamanho);
@@ -55,8 +55,8 @@ public class VariasManeirasDeSeEscreverLambda {
 		tamanho = carros.stream().filter(a -> !a.getMarca().equals("teste")).count();
 		System.out.println("Lambda sem chaves e sem retorno: " + tamanho);
 
-		// Não compila - lambda trabalhando com tipo simples
-		// carros.stream().filter(carro -> !carro.getId() == 0);
+		// Lambda trabalhando com tipo simples
+		carros.stream().filter(carro -> !(carro.getId() == 0));
 	}
 
 }

@@ -45,7 +45,7 @@ public class ImportacaoArquivo {
 	
 	public List<Carro> getCarros() {
 		try {
-			String conteudo = Files.readAllLines(Paths.get(LOCALIZACAO_ARQUIVO), CHARSET).stream().map(e -> e.toString()).reduce("", String::concat);
+			String conteudo = Files.readAllLines(Paths.get(LOCALIZACAO_ARQUIVO), CHARSET).stream().filter(line -> !line.isEmpty()).reduce("", String::concat);
 			
 			Gson gson = new Gson();
 			Type type = new TypeToken<List<Carro>>(){}.getType();
