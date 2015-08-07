@@ -21,30 +21,40 @@ public class VariasManeirasDeSeEscreverLambda {
 		long tamanho = carros.stream().filter(new Predicate<Carro>() {
 			@Override
 			public boolean test(Carro t) {
-				return false;
+				return true;
 			}
 		}).count();
 		System.out.println("Classe anônima, tamanho: " + tamanho);
-		
-		
+
+		// Implementação através de lambda
+		Predicate<Carro> predicateInstanciadoComLambda = (Carro c) -> {
+			return false;
+		};
+		tamanho = carros.stream().filter(predicateInstanciadoComLambda).count();
+		System.out.println("Interface implementada através de lambda, tamanho: " + tamanho);
+
 		// Lambda completa
-		carros.stream().filter((Carro carro) -> {
+		tamanho = carros.stream().filter((Carro carro) -> {
 			return !carro.getMarca().equals("teste");
-		});
+		}).count();
+		System.out.println("Lambda completa: " + tamanho);
 
 		// Lambda com tipo omitido
-		carros.stream().filter((carro) -> {
+		tamanho = carros.stream().filter((carro) -> {
 			return !carro.getMarca().equals("teste");
-		});
+		}).count();
+		System.out.println("Lambda com tipo otimido: " + tamanho);
 
 		// Lambda com única variável
-		carros.stream().filter(a -> {
+		tamanho = carros.stream().filter(a -> {
 			return !a.getMarca().equals("teste");
-		});
+		}).count();
+		System.out.println("Lambda com tipo otimido e com nome sem relação (má prática): " + tamanho);
 
 		// Lambda sem chaves e sem retorno
-		carros.stream().filter(a -> !a.getMarca().equals("teste"));
-		
+		tamanho = carros.stream().filter(a -> !a.getMarca().equals("teste")).count();
+		System.out.println("Lambda sem chaves e sem retorno: " + tamanho);
+
 		// Não compila - lambda trabalhando com tipo simples
 		// carros.stream().filter(carro -> !carro.getId() == 0);
 	}
