@@ -23,7 +23,7 @@ public class NovidadesCollection {
 		carros.sort((c1, c2) -> c1.getNome().compareTo(c2.getNome()));
 		
 		// Printando todos os carros
-		carros.forEach(Carro::toString);
+		carros.forEach(System.out::println);
 	}
 
 }
