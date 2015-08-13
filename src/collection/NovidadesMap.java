@@ -1,10 +1,7 @@
 package collection;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -20,6 +17,7 @@ public class NovidadesMap {
 		importacao = new ImportacaoArquivo();
 	}
 
+	// Total de linhas para a operação - 6
 	public static void main(String... args) {
 		List<Carro> carros = importacao.getCarros();
 		
@@ -35,6 +33,7 @@ public class NovidadesMap {
 		carrosPorMarca.remove(MARCA_INEXISTENTE, new ArrayList<>());
 	}
 	
+	// Total de linhas para a operação - 16
 	public static void mainNoModoAntigo() {
 		List<Carro> carros = importacao.getCarros();
 		

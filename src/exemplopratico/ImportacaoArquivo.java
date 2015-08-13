@@ -6,6 +6,7 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -45,7 +46,7 @@ public class ImportacaoArquivo {
 	
 	public List<Carro> getCarros() {
 		try {
-			String conteudo = Files.readAllLines(Paths.get(LOCALIZACAO_ARQUIVO), CHARSET).stream().filter(line -> !line.isEmpty()).reduce("", String::concat);
+			String conteudo = Files.readAllLines(Paths.get(LOCALIZACAO_ARQUIVO), CHARSET).stream().collect(Collectors.joining());
 			
 			Gson gson = new Gson();
 			Type type = new TypeToken<List<Carro>>(){}.getType();
