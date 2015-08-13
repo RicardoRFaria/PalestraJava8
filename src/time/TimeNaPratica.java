@@ -65,8 +65,8 @@ public class TimeNaPratica {
 		
 		// Agora Java 8
 		LocalDate diaHoje = LocalDate.now();
-		diaHoje.plusDays(2);
-		diaHoje.minusMonths(1);
+		diaHoje = diaHoje.plusDays(2);
+		diaHoje = diaHoje.minusMonths(1);
 		
 	}
 
