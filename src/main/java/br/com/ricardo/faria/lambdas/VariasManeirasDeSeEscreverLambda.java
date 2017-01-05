@@ -17,7 +17,7 @@ public class VariasManeirasDeSeEscreverLambda {
     public static void main(String[] args) {
         List<Carro> carros = importacao.getCarros();
 
-        // M�todo antigo, com classe an�nima
+        // Método antigo, com classe anônima
         long tamanho = carros.stream().filter(new Predicate<Carro>() {
             @Override
             public boolean test(Carro c) {
@@ -29,7 +29,7 @@ public class VariasManeirasDeSeEscreverLambda {
 
 
 
-        // Implementa��o atrav�s de lambda
+        // Implementação através de lambda
         Predicate<Carro> predicateInstanciadoComLambda = (Carro c) -> {
             return !c.getMarca().equals("teste");
         };
@@ -57,7 +57,7 @@ public class VariasManeirasDeSeEscreverLambda {
 
 
 
-        // Lambda com �nica vari�vel
+        // Lambda com única variável
         tamanho = carros.stream().filter(a -> {
             return !a.getMarca().equals("teste");
         }).count();
