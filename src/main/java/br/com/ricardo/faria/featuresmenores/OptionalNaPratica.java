@@ -1,13 +1,13 @@
-package featuresmenores;
+package br.com.ricardo.faria.featuresmenores;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-import exemplopratico.ImportacaoArquivo;
-import modelos.Carro;
-import modelos.CarroFactory;
-import modelos.CarroNullObject;
+import br.com.ricardo.faria.exemplopratico.ImportacaoArquivo;
+import br.com.ricardo.faria.modelos.Carro;
+import br.com.ricardo.faria.modelos.CarroFactory;
+import br.com.ricardo.faria.modelos.CarroNullObject;
 
 public class OptionalNaPratica {
 
@@ -29,7 +29,7 @@ public class OptionalNaPratica {
 				.max((carro01, carro02) -> carro01.getNome().compareTo(carro02.getNome()));
 
 		Carro carro = optCarro.orElse(new CarroNullObject());
-		System.out.println("Primeiro carro não nulo: " + carro);
+		System.out.println("Primeiro carro nï¿½o nulo: " + carro);
 
 		optCarro = carros.stream().filter(c -> c.getAno() > 10000)
 				.max((carro01, carro02) -> carro01.getNome().compareTo(carro02.getNome()));
@@ -38,7 +38,7 @@ public class OptionalNaPratica {
 		System.out.println("Segundo carro, agora nulo: " + carro);
 		
 		try {
-			carro = optCarro.orElseThrow(() -> new IllegalStateException("Carro não encontrado."));			
+			carro = optCarro.orElseThrow(() -> new IllegalStateException("Carro nï¿½o encontrado."));			
 		} catch (IllegalStateException e) {
 			System.out.println("Terceiro carro, exception gerada: " + e.getMessage());
 		}

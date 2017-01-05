@@ -1,4 +1,4 @@
-package modelos;
+package br.com.ricardo.faria.modelos;
 
 import java.util.function.Supplier;
 

@@ -1,4 +1,4 @@
-package featuresmenores;
+package br.com.ricardo.faria.featuresmenores;
 
 import java.util.Arrays;
 import java.util.Iterator;
@@ -9,7 +9,7 @@ public class StringJoin {
 	private static final String DELIMITER_TRACO = " - ";
 	private static final String DELIMITER_VIRGULA = ", ";
 
-	// Execução com 5 linhas
+	// ExecuÃ§Ã£o com 5 linhas
 	public static void main(String... args) {
 		StringJoiner joiner = new StringJoiner(DELIMITER_VIRGULA);
 		joiner.add("01").add("02").add("03");
@@ -23,7 +23,7 @@ public class StringJoin {
 		mainNoModoAntigo();
 	}
 	
-	// Execução com 15 linhas
+	// ExecuÃ§Ã£o com 15 linhas
 	public static void mainNoModoAntigo(String... args) {
 		StringBuilder sb = new StringBuilder();
 		Iterator<String> iterator = Arrays.asList("01", "02", "03").iterator();

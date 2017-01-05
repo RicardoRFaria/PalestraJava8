@@ -1,12 +1,12 @@
-package collection;
+package br.com.ricardo.faria.collection;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import exemplopratico.ImportacaoArquivo;
-import modelos.Carro;
+import br.com.ricardo.faria.exemplopratico.ImportacaoArquivo;
+import br.com.ricardo.faria.modelos.Carro;
 
 public class NovidadesMap {
 	
@@ -17,7 +17,7 @@ public class NovidadesMap {
 		importacao = new ImportacaoArquivo();
 	}
 
-	// Total de linhas para a operaÁ„o - 6
+	// Total de linhas para a opera√ß√£o - 6
 	public static void main(String... args) {
 		List<Carro> carros = importacao.getCarros();
 		
@@ -26,14 +26,14 @@ public class NovidadesMap {
 		carros.forEach(carro -> carrosPorMarca.computeIfAbsent(carro.getMarca(), elemento -> new ArrayList<>()).add(carro));
 		System.out.println(carros);
 		
-		// Retorno caso n„o exista
+		// Retorno caso n√£o exista
 		carrosPorMarca.getOrDefault(MARCA_INEXISTENTE, new ArrayList<>());
 		
 		// Remova item se chave e valor forem iguais a
 		carrosPorMarca.remove(MARCA_INEXISTENTE, new ArrayList<>());
 	}
 	
-	// Total de linhas para a operaÁ„o - 16
+	// Total de linhas para a opera√ß√£o - 16
 	public static void mainNoModoAntigo() {
 		List<Carro> carros = importacao.getCarros();
 		
@@ -46,7 +46,7 @@ public class NovidadesMap {
 			carrosPorMarca.get(carro.getMarca()).add(carro);
 		}
 		
-		// Retorno caso n„o exista
+		// Retorno caso n√£o exista
 		if (carrosPorMarca.containsKey(MARCA_INEXISTENTE)) {
 			carrosPorMarca.get(MARCA_INEXISTENTE);
 		} else {

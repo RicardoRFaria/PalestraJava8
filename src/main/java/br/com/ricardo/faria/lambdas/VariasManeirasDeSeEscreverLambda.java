@@ -1,10 +1,10 @@
-package lambdas;
+package br.com.ricardo.faria.lambdas;
 
 import java.util.List;
 import java.util.function.Predicate;
 
-import exemplopratico.ImportacaoArquivo;
-import modelos.Carro;
+import br.com.ricardo.faria.exemplopratico.ImportacaoArquivo;
+import br.com.ricardo.faria.modelos.Carro;
 
 public class VariasManeirasDeSeEscreverLambda {
 
@@ -17,24 +17,24 @@ public class VariasManeirasDeSeEscreverLambda {
 	public static void main(String[] args) {
 		List<Carro> carros = importacao.getCarros();
 
-		// Método antigo, com classe anônima
+		// Mï¿½todo antigo, com classe anï¿½nima
 		long tamanho = carros.stream().filter(new Predicate<Carro>() {
 			@Override
 			public boolean test(Carro c) {
 				return !c.getMarca().equals("teste");
 			}
 		}).count();
-		System.out.println("Classe anônima, tamanho: " + tamanho);
+		System.out.println("Classe anÃ´nima, tamanho: " + tamanho);
 
 		
 		
 		
-		// Implementação através de lambda
+		// Implementaï¿½ï¿½o atravï¿½s de lambda
 		Predicate<Carro> predicateInstanciadoComLambda = (Carro c) -> {
 			return !c.getMarca().equals("teste");
 		};
 		tamanho = carros.stream().filter(predicateInstanciadoComLambda).count();
-		System.out.println("Interface implementada através de lambda, tamanho: " + tamanho);
+		System.out.println("Interface implementada atravÃ©s de lambda, tamanho: " + tamanho);
 
 		
 		
@@ -57,11 +57,11 @@ public class VariasManeirasDeSeEscreverLambda {
 		
 		
 		
-		// Lambda com única variável
+		// Lambda com ï¿½nica variï¿½vel
 		tamanho = carros.stream().filter(a -> {
 			return !a.getMarca().equals("teste");
 		}).count();
-		System.out.println("Lambda com tipo otimido e com nome sem relação (má prática): " + tamanho);
+		System.out.println("Lambda com tipo otimido e com nome sem relaÃ§Ã£o (mÃ¡ prÃ¡tica): " + tamanho);
 
 		
 		

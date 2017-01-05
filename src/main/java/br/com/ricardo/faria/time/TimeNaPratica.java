@@ -1,4 +1,4 @@
-package time;
+package br.com.ricardo.faria.time;
 
 import java.time.Duration;
 import java.time.Instant;
@@ -17,29 +17,29 @@ public class TimeNaPratica {
 	}
 
 	private static void criacaoDeTempoEmDataEspecifica() {
-		System.out.println("\n === Criação de tempo em data específica ===");
+		System.out.println("\n === CriaÃ§Ã£o de tempo em data especifica ===");
 
 		// Antes
 		Calendar calendar = Calendar.getInstance();
 		calendar.set(2015, Calendar.FEBRUARY, 1);
 		Date data = calendar.getTime();
-		System.out.println("Tempo gerado pela api antiga [O tempo foi adicionado sem permissão]: " + data);
+		System.out.println("Tempo gerado pela api antiga [O tempo foi adicionado sem permissÃ£o]: " + data);
 
 		// Depois
 		LocalDate novaData = LocalDate.of(2015, Month.FEBRUARY, 1);
-		System.out.println("Tempo gerado pela api nova [Como o objeto é de date, tempo não foi incluído]: "
+		System.out.println("Tempo gerado pela api nova [Como o objeto ï¿½ de date, tempo nÃ£o foi incluÃ­do]: "
 				+ novaData.format(DateTimeFormatter.ISO_LOCAL_DATE));
 	}
 
 	private static void analisandoDuracaoDeTempo() throws InterruptedException {
-		System.out.println("\n === Analisando duração do tempo ===");
+		System.out.println("\n === Analisando duraÃ§Ã£o do tempo ===");
 
 		// Antes
 		long inicioAntigo = System.currentTimeMillis();
 		Thread.sleep(50);
 		long fimAntigo = System.currentTimeMillis();
 		long duracaoEmMsAntiga = fimAntigo - inicioAntigo;
-		System.out.println("Duração antiga em ms: " + duracaoEmMsAntiga);
+		System.out.println("DuraÃ§Ã£o antiga em ms: " + duracaoEmMsAntiga);
 
 		// Nova
 		Instant inicioNovo = Instant.now();
@@ -47,8 +47,8 @@ public class TimeNaPratica {
 		Instant fimNovo = Instant.now();
 
 		Duration duracao = Duration.between(inicioNovo, fimNovo);
-		System.out.println("Duração nova em ms: " + duracao.toMillis());
-		System.out.println("Duração nova em nano: " + duracao.getNano());
+		System.out.println("DuraÃ§Ã£o nova em ms: " + duracao.toMillis());
+		System.out.println("DuraÃ§Ã£o nova em nano: " + duracao.getNano());
 	}
 
 	@SuppressWarnings("deprecation")

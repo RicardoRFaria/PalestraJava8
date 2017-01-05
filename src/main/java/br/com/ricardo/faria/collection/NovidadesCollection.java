@@ -1,12 +1,12 @@
-package collection;
+package br.com.ricardo.faria.collection;
 
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
-import exemplopratico.ImportacaoArquivo;
-import modelos.Carro;
+import br.com.ricardo.faria.exemplopratico.ImportacaoArquivo;
+import br.com.ricardo.faria.modelos.Carro;
 
 public class NovidadesCollection {
 	
@@ -16,7 +16,7 @@ public class NovidadesCollection {
 		importacao = new ImportacaoArquivo();
 	}
 
-	// Total de 4 Linhas para a operação
+	// Total de 4 Linhas para a operaÃ§Ã£o
 	public static void main(String... args) {
 		List<Carro> carros = importacao.getCarros();
 		
@@ -31,7 +31,7 @@ public class NovidadesCollection {
 		carros.forEach(System.out::println);
 	}
 	
-	// Total de 16 Linhas para a operação
+	// Total de 16 Linhas para a opera??o
 	public static void mainNoModoAntigo() {
 		List<Carro> carros = importacao.getCarros();
 		

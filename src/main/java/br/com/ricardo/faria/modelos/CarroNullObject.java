@@ -1,4 +1,4 @@
-package modelos;
+package br.com.ricardo.faria.modelos;
 
 public class CarroNullObject extends Carro {
 	

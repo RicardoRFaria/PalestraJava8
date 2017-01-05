@@ -1,4 +1,4 @@
-package exemplopratico;
+package br.com.ricardo.faria.exemplopratico;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import modelos.Carro;
+import br.com.ricardo.faria.modelos.Carro;
 
 public class ImportacaoArquivo {
 	
@@ -31,10 +31,10 @@ public class ImportacaoArquivo {
 	}
 	
 	public int importarArquivoComLambda() throws IOException {
-		// Isso não funciona 
+		// Isso nÃ£o funciona
 		// final int quantidadeDeLinhas = 0;
 		
-		// Isso também não
+		// Isso tambem nÃ£o
 		// int quantidadeDeLinhas = 0;
 		
 		Files.readAllLines(Paths.get(LOCALIZACAO_ARQUIVO), CHARSET).stream().filter(line -> !line.isEmpty()).forEach(line -> {

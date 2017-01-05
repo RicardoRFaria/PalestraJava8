@@ -1,11 +1,11 @@
-package lambdas;
+package br.com.ricardo.faria.lambdas;
 
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import exemplopratico.ImportacaoArquivo;
-import modelos.Carro;
+import br.com.ricardo.faria.exemplopratico.ImportacaoArquivo;
+import br.com.ricardo.faria.modelos.Carro;
 
 public class CollectorsNaPratica {
 
@@ -28,12 +28,12 @@ public class CollectorsNaPratica {
 				.collect(Collectors.groupingBy(Carro::getMarca, Collectors.summingInt(Carro::getAno)));
 		System.out.println(agrupadoPorMarcasEComSomaDeAnos);
 
-		System.out.println(" === Agrupado por marcas e com valor como mÈdia de anos === ");
+		System.out.println(" === Agrupado por marcas e com valor como m√©dia de anos === ");
 		Map<String, Double> agrupadoPorMarcasEComMediaDeAnos = carros.stream()
 				.collect(Collectors.groupingBy(Carro::getMarca, Collectors.averagingInt(Carro::getAno)));
 		System.out.println(agrupadoPorMarcasEComMediaDeAnos);
 
-		System.out.println(" === Quantidade de carros que pagam ou n„o IPVA === ");
+		System.out.println(" === Quantidade de carros que pagam ou n√£o IPVA === ");
 		Map<Boolean, Long> carrosQuePagamOuNaoIPVA = carros.stream()
 				.collect(Collectors.partitioningBy(carro -> carro.getAno() > IDADE_QUE_CARRO_PAGA_IPVA, Collectors.counting()));
 		System.out.println(carrosQuePagamOuNaoIPVA);
