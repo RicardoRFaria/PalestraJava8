@@ -11,47 +11,47 @@ import br.com.ricardo.faria.modelos.CarroNullObject;
 
 public class OptionalNaPratica {
 
-	private static ImportacaoArquivo importacao;
+    private static ImportacaoArquivo importacao;
 
-	static {
-		importacao = new ImportacaoArquivo();
-	}
+    static {
+        importacao = new ImportacaoArquivo();
+    }
 
-	public static void main(String... args) {
-		OptionalNaPratica.optionalDeCarros();
-		OptionalNaPratica.optionalDeInteger();
-	}
+    public static void main(String... args) {
+        OptionalNaPratica.optionalDeCarros();
+        OptionalNaPratica.optionalDeInteger();
+    }
 
-	private static void optionalDeCarros() {
-		List<Carro> carros = importacao.getCarros();
+    private static void optionalDeCarros() {
+        List<Carro> carros = importacao.getCarros();
 
-		Optional<Carro> optCarro = carros.stream()
-				.max((carro01, carro02) -> carro01.getNome().compareTo(carro02.getNome()));
+        Optional<Carro> optCarro = carros.stream()
+                .max((carro01, carro02) -> carro01.getNome().compareTo(carro02.getNome()));
 
-		Carro carro = optCarro.orElse(new CarroNullObject());
-		System.out.println("Primeiro carro n�o nulo: " + carro);
+        Carro carro = optCarro.orElse(new CarroNullObject());
+        System.out.println("Primeiro carro n�o nulo: " + carro);
 
-		optCarro = carros.stream().filter(c -> c.getAno() > 10000)
-				.max((carro01, carro02) -> carro01.getNome().compareTo(carro02.getNome()));
-		
-		carro = optCarro.orElseGet(CarroFactory.getCarroConstructor());
-		System.out.println("Segundo carro, agora nulo: " + carro);
-		
-		try {
-			carro = optCarro.orElseThrow(() -> new IllegalStateException("Carro n�o encontrado."));			
-		} catch (IllegalStateException e) {
-			System.out.println("Terceiro carro, exception gerada: " + e.getMessage());
-		}
-	}
+        optCarro = carros.stream().filter(c -> c.getAno() > 10000)
+                .max((carro01, carro02) -> carro01.getNome().compareTo(carro02.getNome()));
 
-	private static void optionalDeInteger() {
-		List<Integer> listaIntegers = Arrays.asList(1, 2, 3);
+        carro = optCarro.orElseGet(CarroFactory.getCarroConstructor());
+        System.out.println("Segundo carro, agora nulo: " + carro);
 
-		Optional<Integer> optInteger = listaIntegers.stream().filter(i -> i > 10).findFirst();
+        try {
+            carro = optCarro.orElseThrow(() -> new IllegalStateException("Carro n�o encontrado."));
+        } catch (IllegalStateException e) {
+            System.out.println("Terceiro carro, exception gerada: " + e.getMessage());
+        }
+    }
 
-		// Isto gera nullpointer
-		// System.out.println(optInteger.get());
+    private static void optionalDeInteger() {
+        List<Integer> listaIntegers = Arrays.asList(1, 2, 3);
 
-		System.out.println("Integer optional: " + optInteger.orElse(0));
-	}
+        Optional<Integer> optInteger = listaIntegers.stream().filter(i -> i > 10).findFirst();
+
+        // Isto gera nullpointer
+        // System.out.println(optInteger.get());
+
+        System.out.println("Integer optional: " + optInteger.orElse(0));
+    }
 }
