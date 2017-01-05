@@ -66,9 +66,7 @@ public class Carro {
         if (getClass() != obj.getClass())
             return false;
         Carro other = (Carro) obj;
-        if (id != other.id)
-            return false;
-        return true;
+        return id == other.id;
     }
 
     @Override
